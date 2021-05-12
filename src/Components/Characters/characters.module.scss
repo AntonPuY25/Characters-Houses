@@ -1,0 +1,19 @@
+.paginationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tableRow {
+  height: 75px;
+  :first-child{
+    width: 350px;
+  }
+  :nth-child(1n+1){
+    font-size: 20px;
+  }
+
+}
+
+
+

@@ -1,38 +1,36 @@
 import {Dispatch} from "redux";
-import {Api, TypeCharacter} from "../../Api/api";
+import {Api, TypeResponseDataHouse} from "../../Api/api";
 
 const initialState:TypeInitialState = {
-    characters: [],
+    house: null,
     status:'free',
     error:''
-
-
 }
 
-const getCharactersAC = (characters: TypeCharacter[]) => {
+const getHousesAC = (houses: TypeResponseDataHouse) => {
     return {
-        type: '/characters/GET_CHARACTERS',
-        characters
+        type: '/houses/GET_HOUSES',
+        houses
 
     } as const
 }
 const getStatusAC = (status: TypeStatus) => {
     return {
-        type: '/characters/SET_STATUS',
+        type: '/houses/SET_STATUS',
         status
 
     } as const
 }
-const CharacterReducer = (state: TypeInitialState = initialState, actions: TypeActions): TypeInitialState => {
+const HousesReducer = (state: TypeInitialState = initialState, actions: TypeActions): TypeInitialState => {
 
     switch (actions.type) {
 
-        case "/characters/GET_CHARACTERS":
+        case '/houses/GET_HOUSES':
             return {
                 ...state,
-                characters: actions.characters
+                house: actions.houses
             }
-        case "/characters/SET_STATUS":
+        case '/houses/SET_STATUS':
             return{
                 ...state,
                 status:actions.status
@@ -43,12 +41,12 @@ const CharacterReducer = (state: TypeInitialState = initialState, actions: TypeA
 
 }
 
-export const getCharactersTC = (page:string) => async (dispatch: Dispatch<TypeActions>) => {
+export const getHousesTC = (houseId:string) => async (dispatch: Dispatch<TypeActions>) => {
     dispatch(getStatusAC('loading'))
     try {
-        let result: TypeCharacter[] = await Api.getCharacters(page)
+        let result: TypeResponseDataHouse = await Api.getHouses(houseId)
         dispatch(getStatusAC('success'))
-        dispatch(getCharactersAC(result))
+        dispatch(getHousesAC(result))
     } catch (e) {
         console.log(e)
         dispatch(getStatusAC('error'))
@@ -58,14 +56,14 @@ export const getCharactersTC = (page:string) => async (dispatch: Dispatch<TypeAc
 }
 
 type TypeActions =
-    |ReturnType<typeof getCharactersAC>
+    |ReturnType<typeof getHousesAC>
     |ReturnType<typeof getStatusAC>;
 type TypeStatus = 'free' | 'loading'|'error'|'success';
 type TypeInitialState = {
-    characters: TypeCharacter[]
+    house: TypeResponseDataHouse|null
     status:TypeStatus
     error:string
 }
 
 
-export default CharacterReducer;
+export default HousesReducer;

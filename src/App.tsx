@@ -20,11 +20,11 @@ function App() {
             <HashRouter>
 
                 <Switch>
-                    <Route exact path={PATH.startPage}
+                    <Route exact path={PATH.startPage  }
                            render={() => <Characters/>}/>
-                    <Route path={PATH.characters}
+                    <Route path={PATH.characters + "/:id"}
                            render={() => <Characters/>}/>
-                    <Route path={PATH.houses}
+                    <Route path={PATH.houses+ "/:id"}
                            render={() => <Houses/>}/>
                     <Route path={PATH.page404}
                            render={() => <Page404/>}/>

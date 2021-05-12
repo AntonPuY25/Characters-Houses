@@ -8,8 +8,13 @@ const instance = axios.create({
 
 
 export  const Api = {
-    getCharacters(){
-        return instance.get<TypeCharacter[]>('characters?page=59').then(response=>{
+    getCharacters(page:string){
+        return instance.get<TypeCharacter[]>(`characters?page=${page}`).then(response=>{
+            return response.data
+        })
+    },
+    getHouses(houseId:string){
+        return instance.get<TypeResponseDataHouse>(`houses/${houseId}`).then(response=>{
             return response.data
         })
     }
@@ -32,4 +37,22 @@ export type TypeCharacter = {
     titles: string[]
     tvSeries: string[]
     url:string
+}
+export type TypeResponseDataHouse = {
+    ancestralWeapons: string[]
+    cadetBranches: string[]
+    coatOfArms: string
+    currentLord: string
+    diedOut:string
+    founded: string
+    founder:string
+    heir: string
+    name: string
+    overlord: string
+    region: string
+    seats: string[]
+    swornMembers: string[]
+    titles: string[]
+    url:string
+    words:string
 }
