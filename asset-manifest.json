@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Characters-Houses/static/css/main.9c3357f8.chunk.css",
+    "main.js": "/Characters-Houses/static/js/main.156e5c2d.chunk.js",
+    "main.js.map": "/Characters-Houses/static/js/main.156e5c2d.chunk.js.map",
+    "runtime-main.js": "/Characters-Houses/static/js/runtime-main.512c2462.js",
+    "runtime-main.js.map": "/Characters-Houses/static/js/runtime-main.512c2462.js.map",
+    "static/js/2.ff43c920.chunk.js": "/Characters-Houses/static/js/2.ff43c920.chunk.js",
+    "static/js/2.ff43c920.chunk.js.map": "/Characters-Houses/static/js/2.ff43c920.chunk.js.map",
+    "static/js/3.13618157.chunk.js": "/Characters-Houses/static/js/3.13618157.chunk.js",
+    "static/js/3.13618157.chunk.js.map": "/Characters-Houses/static/js/3.13618157.chunk.js.map",
+    "index.html": "/Characters-Houses/index.html",
+    "static/css/main.9c3357f8.chunk.css.map": "/Characters-Houses/static/css/main.9c3357f8.chunk.css.map",
+    "static/js/2.ff43c920.chunk.js.LICENSE.txt": "/Characters-Houses/static/js/2.ff43c920.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.512c2462.js",
+    "static/js/2.ff43c920.chunk.js",
+    "static/css/main.9c3357f8.chunk.css",
+    "static/js/main.156e5c2d.chunk.js"
+  ]
+}
