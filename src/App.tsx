@@ -1,30 +1,30 @@
-import React from 'react';
-import './App.css';
-import Characters from "./Components/Characters/characters";
-import Houses from "./Components/Houses/houses";
-import Page404 from "./Components/errors/page404";
-import {HashRouter, Redirect, Route, Switch} from 'react-router-dom';
+import React from 'react'
+import './App.css'
+import Characters from './Components/Characters/characters'
+import Houses from './Components/Houses/houses'
+import Page404 from './Components/errors/page404'
+import {HashRouter, Redirect, Route, Switch} from 'react-router-dom'
 
 export const PATH = {
-    characters: "/characters",
-    houses: "/houses",
-    page404: "/page404",
-    pageNotFound: "*",
-    startPage: "/"
+    characters: '/characters',
+    houses: '/houses',
+    page404: '/page404',
+    pageNotFound: '*',
+    startPage: '/'
 }
 
 function App() {
 
     return (
-        <div className="App">
+        <div className='App'>
             <HashRouter>
 
                 <Switch>
-                    <Route exact path={PATH.startPage  }
+                    <Route exact path={PATH.startPage}
                            render={() => <Characters/>}/>
-                    <Route path={PATH.characters + "/:id"}
+                    <Route path={PATH.characters + '/:id'}
                            render={() => <Characters/>}/>
-                    <Route path={PATH.houses+ "/:id"}
+                    <Route path={PATH.houses + '/:id'}
                            render={() => <Houses/>}/>
                     <Route path={PATH.page404}
                            render={() => <Page404/>}/>
@@ -38,4 +38,4 @@ function App() {
     );
 }
 
-export default App;
+export default App

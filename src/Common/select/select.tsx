@@ -1,6 +1,6 @@
-import React from 'react';
-import {FormControl, InputLabel, MenuItem} from "@material-ui/core";
-import Select from '@material-ui/core/Select';
+import React from 'react'
+import {FormControl, InputLabel, MenuItem} from '@material-ui/core'
+import Select from '@material-ui/core/Select'
 type TypePropsGender = {
     gender: string
     handleChange:(event: React.ChangeEvent<{ value: unknown }>)=>void
@@ -23,4 +23,4 @@ const SelectPage:React.FC<TypePropsGender> = ({gender,handleChange})=>{
     </>
 }
 
-export default SelectPage;
+export default SelectPage

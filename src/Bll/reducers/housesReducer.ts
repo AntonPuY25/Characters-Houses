@@ -1,27 +1,34 @@
-import {Dispatch} from "redux";
-import {Api, TypeResponseDataHouse} from "../../Api/api";
+import {Dispatch} from 'redux'
+import {Api, TypeResponseDataHouse} from '../../Api/api'
 
-const initialState:TypeInitialState = {
+const initialState:TypeInitialStateHouses = {
     house: null,
     status:'free',
     error:''
 }
 
-const getHousesAC = (houses: TypeResponseDataHouse) => {
+export const getHousesAC = (houses: TypeResponseDataHouse) => {
     return {
         type: '/houses/GET_HOUSES',
         houses
 
     } as const
 }
-const getStatusAC = (status: TypeStatus) => {
+export const getStatusAC = (status: TypeStatus) => {
     return {
         type: '/houses/SET_STATUS',
         status
 
     } as const
 }
-const HousesReducer = (state: TypeInitialState = initialState, actions: TypeActions): TypeInitialState => {
+export const setErrorAC = (error: string)=>{
+    return {
+        type: '/characters/SET_ERROR',
+        error
+
+    } as const
+}
+const HousesReducer = (state: TypeInitialStateHouses = initialState, actions: TypeActions): TypeInitialStateHouses => {
 
     switch (actions.type) {
 
@@ -34,6 +41,11 @@ const HousesReducer = (state: TypeInitialState = initialState, actions: TypeActi
             return{
                 ...state,
                 status:actions.status
+            }
+        case "/characters/SET_ERROR":
+            return{
+                ...state,
+                error:actions.error
             }
         default:
             return state
@@ -57,9 +69,10 @@ export const getHousesTC = (houseId:string) => async (dispatch: Dispatch<TypeAct
 
 type TypeActions =
     |ReturnType<typeof getHousesAC>
-    |ReturnType<typeof getStatusAC>;
-type TypeStatus = 'free' | 'loading'|'error'|'success';
-type TypeInitialState = {
+    |ReturnType<typeof getStatusAC>
+    |ReturnType<typeof setErrorAC>;
+export type TypeStatus = 'free' | 'loading'|'error'|'success';
+export type TypeInitialStateHouses = {
     house: TypeResponseDataHouse|null
     status:TypeStatus
     error:string

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const Page404 = ()=>{
-    return<>
+const Page404 = () => {
+    return <>
         Page404
     </>
 }
 
-export default Page404;
+export default Page404
