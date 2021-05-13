@@ -6,11 +6,12 @@
 
 .tableRow {
   height: 75px;
-  :first-child{
-    width: 350px;
-  }
   :nth-child(1n+1){
-    font-size: 20px;
+    font-size: 17px;
+    width: 20%;
+  }
+  :link{
+    text-decoration: none;
   }
 
 }
